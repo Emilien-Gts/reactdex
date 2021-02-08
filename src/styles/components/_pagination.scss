@@ -1,0 +1,42 @@
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0;
+
+  &__prev,
+  &__next {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+  }
+
+  &__prev {
+    background-image: url(./../../images/prev.svg);
+    margin-right: 1rem;
+  }
+
+  &__next {
+    background-image: url(./../../images/next.svg);
+    margin-left: 1rem;
+  }
+
+  &__numbers {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__dot,
+  &__number {
+    margin: 0 0.25rem;
+    font-size: 18px;
+    color: white;
+  }
+
+  &__number {
+    cursor: pointer;
+  }
+}

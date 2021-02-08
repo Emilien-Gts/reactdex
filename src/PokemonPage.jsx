@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Stats from "./components/Stats";
 import Types from "./components/Types";
+import Pagination from "./components/Pagination";
 
 const PokemonPage = () => {
   const [id, setId] = useState(1);
@@ -27,11 +28,17 @@ const PokemonPage = () => {
 
   function setBody(t) {
     const body = document.body;
+    body.classList = "";
     body.classList.add("body--" + t);
+  }
+
+  function handleIdChange(id) {
+    setId(id);
   }
 
   return (
     <>
+      <Pagination currentId={id} onIdChange={handleIdChange} />
       <div className="pokemon">
         <span className="pokemon__id">#{pokemon.id}</span>
         <span className="pokemon__name">{pokemon.name}</span>
