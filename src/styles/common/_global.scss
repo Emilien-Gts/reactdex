@@ -1,0 +1,78 @@
+body {
+  margin: 0 !important;
+  font-family: "Yusei Magic", sans-serif;
+}
+
+.body {
+  &--normal {
+    background-color: $normal;
+  }
+
+  &--poison {
+    background-color: $poison;
+  }
+
+  &--psychic {
+    background-color: $psychic;
+  }
+
+  &--grass {
+    background-color: $grass;
+  }
+
+  &--ground {
+    background-color: $ground;
+  }
+
+  &--ice {
+    background-color: $ice;
+  }
+
+  &--fire {
+    background-color: $fire;
+  }
+
+  &--rock {
+    background-color: $rock;
+  }
+
+  &--dragon {
+    background-color: $dragon;
+  }
+
+  &--water {
+    background-color: $water;
+  }
+
+  &--bug {
+    background-color: $bug;
+  }
+
+  &--dark {
+    background-color: $dark;
+  }
+
+  &--fighting {
+    background-color: $fighting;
+  }
+
+  &--ghost {
+    background-color: $ghost;
+  }
+
+  &--steel {
+    background-color: $steel;
+  }
+
+  &--flying {
+    background-color: $flying;
+  }
+
+  &--electric {
+    background-color: $electric;
+  }
+
+  &--fairy {
+    background-color: $fairy;
+  }
+}

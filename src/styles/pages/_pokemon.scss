@@ -1,0 +1,44 @@
+.pokemon {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 4rem 0.5rem 4rem;
+  color: $white;
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__left,
+  &__right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__left {
+    flex-basis: 60%;
+  }
+
+  &__right {
+    flex-basis: 40%;
+  }
+
+  &__id {
+    font-size: 26px;
+  }
+
+  &__name {
+    font-size: 94px;
+    opacity: 0.7;
+  }
+
+  &__more {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__characteristics {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,14 @@
+.stats {
+  border-left: 3px solid $white;
+  padding: 0;
+  list-style: none;
+}
+
+.stat {
+  background-color: $white;
+  border-radius: 12px;
+  padding: 0.5rem;
+  color: black;
+  display: inline-block;
+  margin: 0.25rem 0.75rem;
+}
