@@ -23,6 +23,7 @@ const PokemonPage = () => {
 
       setPokemon(pokemon);
       setBody(pokemon.types[0]);
+      setTitle(pokemon.name);
     });
   }, [id]);
 
@@ -30,6 +31,10 @@ const PokemonPage = () => {
     const body = document.body;
     body.classList = "";
     body.classList.add("body--" + t);
+  }
+
+  function setTitle(n) {
+    document.title = "ReactDex | " + n;
   }
 
   function handleIdChange(id) {
