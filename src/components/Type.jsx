@@ -5,7 +5,7 @@ const Type = ({ type }) => {
 
   useEffect(() => {
     setTypeClass("type type--" + type);
-  });
+  }, [type]);
 
   const t = type.charAt(0).toUpperCase() + type.slice(1);
 

@@ -22,23 +22,23 @@ const Pagination = ({ currentId, onIdChange }) => {
 
   function setPaginationNumber(currentId) {
     let items = [];
-    let key = 0;
-    let step = 4;
 
     for (let index = -4; index <= 4; index++) {
       const key = currentId + index;
-      items.push(
-        <li key={key} className="pagination__number">
-          <a
-            href="#!"
-            data-key={key}
-            className={key === currentId ? "current" : ""}
-            onClick={() => onIdChange(key)}
-          >
-            {key}
-          </a>
-        </li>
-      );
+      if (key > 0) {
+        items.push(
+          <li key={key} className="pagination__number">
+            <a
+              href="#!"
+              data-key={key}
+              className={key === currentId ? "current" : ""}
+              onClick={() => onIdChange(key)}
+            >
+              {key}
+            </a>
+          </li>
+        );
+      }
     }
     setNumbers(items);
   }
