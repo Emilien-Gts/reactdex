@@ -3,6 +3,8 @@ import axios from "axios";
 import Stats from "./components/Stats";
 import Types from "./components/Types";
 import Pagination from "./components/Pagination";
+import Search from "./components/Search";
+
 const PokemonPage = () => {
   const [id, setId] = useState(1);
   const [pokemon, setPokemon] = useState({});
@@ -37,7 +39,15 @@ const PokemonPage = () => {
   }
 
   function handleIdChange(id) {
-    setId(id);
+    console.log(id);
+    if (typeof id === "number") {
+      setId(id);
+    } else {
+      const url = "https://pokeapi.co/api/v2/pokemon/" + id;
+      axios.get(url).then((res) => {
+        setId(parseInt(res.data.id));
+      });
+    }
   }
 
   return (
@@ -65,6 +75,9 @@ const PokemonPage = () => {
             <span className="pokemon__subtitle">Base stats:</span>
             <Stats stats={pokemon.stats} />
           </div>
+        </div>
+        <div className="search">
+          <Search onIdChange={handleIdChange} />
         </div>
       </div>
     </>

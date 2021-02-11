@@ -25,26 +25,13 @@ const Pagination = ({ currentId, onIdChange }) => {
     let key = 0;
     let step = 4;
 
-    for (let index = 1; index <= 9; index++) {
-      if (currentId >= 5) {
-        if (index <= 4) {
-          key = currentId - step;
-          step -= 1;
-        }
-        if (index > 5 && index <= 9 && index !== 5) {
-          step += 1;
-          key = currentId + step;
-        }
-        if (index === 5) {
-          key = currentId;
-        }
-      } else {
-        key = index;
-      }
+    for (let index = -4; index <= 4; index++) {
+      const key = currentId + index;
       items.push(
         <li key={key} className="pagination__number">
           <a
             href="#!"
+            data-key={key}
             className={key === currentId ? "current" : ""}
             onClick={() => onIdChange(key)}
           >
