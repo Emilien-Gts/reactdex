@@ -35,6 +35,7 @@
   &__more {
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
   }
 
   &__characteristics {

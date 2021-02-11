@@ -3,7 +3,6 @@ import axios from "axios";
 import Stats from "./components/Stats";
 import Types from "./components/Types";
 import Pagination from "./components/Pagination";
-
 const PokemonPage = () => {
   const [id, setId] = useState(1);
   const [pokemon, setPokemon] = useState({});
@@ -52,10 +51,10 @@ const PokemonPage = () => {
             <div className="pokemon__more">
               <div className="pokemon__characteristics">
                 <span className="pokemon__weight">
-                  Weight: {pokemon.weight}m
+                  Weight: {pokemon.weight}kg
                 </span>
                 <span className="pokemon__height">
-                  Height: {pokemon.height}kg
+                  Height: {pokemon.height}m
                 </span>
               </div>
               <img src={pokemon.image} alt={pokemon.name} />
