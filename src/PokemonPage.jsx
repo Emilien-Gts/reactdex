@@ -11,21 +11,26 @@ const PokemonPage = () => {
 
   useEffect(() => {
     const url = "https://pokeapi.co/api/v2/pokemon/" + id;
-    axios.get(url).then((res) => {
-      const pokemon = {
-        id: res.data.id,
-        name: res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1),
-        image: res.data.sprites.other["official-artwork"].front_default,
-        types: res.data.types.map((t) => t.type.name),
-        stats: res.data.stats.map((s) => [s.stat.name, s.base_stat]),
-        height: res.data.height / 10,
-        weight: res.data.weight / 10,
-      };
+    axios
+      .get(url)
+      .then((res) => {
+        const pokemon = {
+          id: res.data.id,
+          name: res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1),
+          image: res.data.sprites.other["official-artwork"].front_default,
+          types: res.data.types.map((t) => t.type.name),
+          stats: res.data.stats.map((s) => [s.stat.name, s.base_stat]),
+          height: res.data.height / 10,
+          weight: res.data.weight / 10,
+        };
 
-      setPokemon(pokemon);
-      setBody(pokemon.types[0]);
-      setTitle(pokemon.name);
-    });
+        setPokemon(pokemon);
+        setBody(pokemon.types[0]);
+        setTitle(pokemon.name);
+      })
+      .catch((err) => {
+        alert(err.response.data);
+      });
   }, [id]);
 
   function setBody(t) {
@@ -39,14 +44,18 @@ const PokemonPage = () => {
   }
 
   function handleIdChange(id) {
-    console.log(id);
     if (typeof id === "number") {
       setId(id);
     } else {
-      const url = "https://pokeapi.co/api/v2/pokemon/" + id;
-      axios.get(url).then((res) => {
-        setId(parseInt(res.data.id));
-      });
+      const url = "https://pokeapi.co/api/v2/pokemon/" + id.replace(" ", "-");
+      axios
+        .get(url)
+        .then((res) => {
+          setId(parseInt(res.data.id));
+        })
+        .catch((err) => {
+          alert(err.response.data);
+        });
     }
   }
 
@@ -76,9 +85,9 @@ const PokemonPage = () => {
             <Stats stats={pokemon.stats} />
           </div>
         </div>
-        <div className="search">
-          <Search onIdChange={handleIdChange} />
-        </div>
+      </div>
+      <div className="search">
+        <Search onIdChange={handleIdChange} />
       </div>
     </>
   );

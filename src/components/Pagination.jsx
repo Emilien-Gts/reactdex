@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 
 const Pagination = ({ currentId, onIdChange }) => {
-  const [count, setCount] = useState(0);
+  const count = 898;
   const [prev, setPrev] = useState(false);
   const [next, setNext] = useState(true);
   const [numbers, setNumbers] = useState([]);
-
-  useEffect(() => {
-    const url = "https://pokeapi.co/api/v2/pokemon/";
-    axios.get(url).then((res) => {
-      setCount(res.data.count);
-    });
-  }, []);
 
   useEffect(() => {
     currentId === 1 ? setPrev(false) : setPrev(true);
@@ -25,7 +17,8 @@ const Pagination = ({ currentId, onIdChange }) => {
 
     for (let index = -4; index <= 4; index++) {
       const key = currentId + index;
-      if (key > 0) {
+      console.log(key);
+      if (key > 0 && key <= count) {
         items.push(
           <li key={key} className="pagination__number">
             <a
